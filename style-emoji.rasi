@@ -1,0 +1,206 @@
+@import 'shared/color.rasi'
+@import 'shared/font.rasi'
+
+configuration {
+    modi:                       "emoji";
+    show-icons:                 false;
+}
+
+* {
+    background:                 @base;
+    foreground:                 @text;
+    lightfg:                    @text;
+    lightbg:                    @mantle;
+    border-color:               @foreground;
+
+    normal-background:          @background;
+    normal-foreground:          @foreground;
+    selected-normal-background: @lightfg;
+    selected-normal-foreground: @lightbg;
+
+    active-background:          @background;
+    active-foreground:          @blue;
+    selected-active-background: @blue;
+    selected-active-foreground: @background;
+
+    urgent-background:          @background;
+    urgent-foreground:          @red;
+    selected-urgent-background: @red;
+    selected-urgent-foreground: @background;
+
+    alternate-normal-background: @lightbg;
+    alternate-normal-foreground: @foreground;
+    alternate-active-background: @lightbg;
+    alternate-active-foreground: @blue;
+    alternate-urgent-background: @lightbg;
+    alternate-urgent-foreground: @red;
+
+    separatorcolor:             @foreground;
+    spacing:                    2;
+}
+
+window {
+    transparency:               "real";
+    location:                   center;
+    anchor:                     center;
+    fullscreen:                 false;
+    width:                      1000px;
+    x-offset:                   0px;
+    y-offset:                   0px;
+    enabled:                    true;
+    margin:                     0px;
+    padding:                    0px;
+    border:                     0px solid;
+    border-radius:              10px;
+    border-color:               @border-color;
+    cursor:                     "default";
+    background-color:           @background;
+}
+
+mainbox {
+    spacing:                    10px;
+    padding:                    30px;
+    background-color:           transparent;
+    children:                   [ "inputbar", "message", "listview" ];
+}
+
+inputbar {
+    spacing:                    10px;
+    background-color:           transparent;
+    text-color:                 @foreground;
+    children:                   [ "textbox-prompt-colon", "entry" ];
+}
+
+prompt, textbox-prompt-colon, entry, num-filtered-rows, textbox-num-sep, num-rows, case-indicator {
+    background-color:           inherit;
+    text-color:                 inherit;
+}
+
+textbox-prompt-colon {
+    padding:                    5px 0px;
+    str:                        "";
+    expand:                     false;
+}
+
+entry {
+    padding:                    5px 0px;
+    cursor:                     text;
+    placeholder:                "Search...";
+    placeholder-color:          inherit;
+}
+
+listview {
+    columns:                    5;
+    lines:                      15;
+    dynamic:                    true;
+    scrollbar:                  true;
+    layout:                     vertical;
+    spacing:                    5px;
+    background-color:           transparent;
+    text-color:                 @foreground;
+}
+
+scrollbar {
+    handle-width:               5px;
+    handle-color:               @foreground;
+    border-radius:              10px;
+    background-color:           @lightbg;
+}
+
+element {
+    spacing:                    15px;
+    padding:                    5px 10px;
+    border-radius:              10px;
+    background-color:           transparent;
+    text-color:                 @foreground;
+    cursor:                     pointer;
+}
+
+element normal.normal {
+    background-color:           var(normal-background);
+    text-color:                 var(normal-foreground);
+}
+element normal.urgent {
+    background-color:           var(urgent-background);
+    text-color:                 var(urgent-foreground);
+}
+element normal.active {
+    background-color:           var(active-background);
+    text-color:                 var(active-foreground);
+}
+element selected.normal {
+    background-color:           var(selected-normal-background);
+    text-color:                 var(selected-normal-foreground);
+}
+element selected.urgent {
+    background-color:           var(selected-urgent-background);
+    text-color:                 var(selected-urgent-foreground);
+}
+element selected.active {
+    background-color:           var(selected-active-background);
+    text-color:                 var(selected-active-foreground);
+}
+element alternate.normal {
+    background-color:           var(alternate-normal-background);
+    text-color:                 var(alternate-normal-foreground);
+}
+element alternate.urgent {
+    background-color:           var(alternate-urgent-background);
+    text-color:                 var(alternate-urgent-foreground);
+}
+element alternate.active {
+    background-color:           var(alternate-active-background);
+    text-color:                 var(alternate-active-foreground);
+}
+
+element-icon, element-text {
+    background-color:           transparent;
+    text-color:                 inherit;
+    cursor:                     inherit;
+}
+
+element-icon {
+    size:                       24px;
+}
+
+element-text {
+    highlight:                  inherit;
+    vertical-align:             0.5;
+    horizontal-align:           0.0;
+}
+
+button {
+    padding:                    5px 15px 5px 10px;
+    border-radius:              50%;
+    background-color:           @lightbg;
+    text-color:                 inherit;
+    cursor:                     pointer;
+}
+
+button selected {
+    background-color:           var(selected-normal-background);
+    text-color:                 var(selected-normal-foreground);
+}
+
+message, textbox {
+    background-color:           transparent;
+    text-color:                 @foreground;
+}
+
+textbox {
+    padding:                    8px 10px;
+    border-radius:              10px;
+    background-color:           @lightbg;
+    highlight:                  none;
+    placeholder-color:          @foreground;
+    blink:                      true;
+    markup:                     true;
+}
+
+error-message {
+    padding:                    10px;
+    border:                     2px solid;
+    border-radius:              10px;
+    background-color:           @background;
+    text-color:                 @foreground;
+}
