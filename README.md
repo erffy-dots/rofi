@@ -7,4 +7,4 @@ bash -c "bash <(curl -sL https://raw.githubusercontent.com/erffy-dots/rofi/main/
 ```
 
 ### Screenshots
-![](assets/rofi.png)
+![](https://raw.githubusercontent.com/erffy-dots/.generic/main/assets/rofi.png)
